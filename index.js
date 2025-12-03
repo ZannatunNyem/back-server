@@ -33,11 +33,22 @@ async function run() {
     const cocosCollection=client.db('cocoDB').collection('cocos');
     const usersCollection=client.db('cocoDB').collection('users');
 
+        // --- Home Route ---
+    app.get("/", (req, res) => {
+      res.send("Back-server is Running...");
+    });
+
     // --- GET All Coco Items ---
     app.get("/cocos", async (req, res) => {
       const result = await cocosCollection.find().toArray();
       res.send(result);
     });
+
+    /////
+    app.get("/test", (req, res) => {
+  res.send("Test route working!");
+});
+
 
     // --- GET Users ---
     app.get("/users", async (req, res) => {
@@ -45,10 +56,7 @@ async function run() {
       res.send(result);
     });
 
-    // --- Home Route ---
-    app.get("/", (req, res) => {
-      res.send("Back-server is Running...");
-    });
+
 
     // Send a ping to confirm a successful connection
      await client.db("admin").command({ ping: 1 });
