@@ -74,7 +74,7 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
   res.send('Hello coco World!')
 });
-app.get("/test", (req, res) => res.send("Test route working!"));
+
 
  app.listen(port, () => {
    console.log(`Here is port ${port}`)
